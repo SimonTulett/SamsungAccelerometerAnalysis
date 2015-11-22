@@ -1,49 +1,71 @@
-# Setup
+# Variable table
 
-The data to be analysed is accelerometer & gyroscope data from the Samsung Galaxy S Smartphone.
-The run_analysis.R script will summarise the data for the mean and standard deviation across multiple test subjects and activities.
-
-# Expirimental Design & Background
-
-30 subjects have been split into two groups
-9 subjects are in the test group and 21 subjects are in the training group
-Each subject perfoms 6 activities, listed below;
-
-* Walking
-* Walking Upstairs
-* Walking Downstairs
-* Sitting 
-* Standing
-* Laying
-
-Raw accelerometer and gyroscope data is captured for each activity per subject for analysis. 
-
-# Raw Data
-
-The raw data analysed within the UCI HAR DATASET folder and it's sub folders by run_analysis.R is listed below;
-
-* activity_labels.txt 
- * This file acts as a lookup table for the specific activities performed by the subjects
-* features.txt
- * This file holds the full list of measurements taken and calculations created from the raw accelerometer & gyroscope data
-* subject_test.txt
- * This file holds a single column of test subjects repeated in line with the number of measurements taken per activity.
-* X_test.txt
- * This file holds all the test measurement data without column names or subject & activity labels.
-* Y_test.txt
- * This file holds a single column of activities repeated in line with the number of measurements taken per test subject.
-* subject_train.txt
- * This file holds a single column of training subjects repeated in line with the number of measurements taken per activity.
-* X_train.txt
- * This file holds all the training measurement data without column names or subject & activity labels.
-* Y_train.txt
- * This file holds a single column of activities repeated in line with the number of measurements taken per training subject.
-
-Data from the training and test sub folder "Inertial Signals" was ignored as it was not required for the analysis.
-
-The files will be combined into a single file of test and training subjects with columns and row headings matched 
-and descriptive names added where applicable so the mean and standard deviation data can be summarised per subject 
-and activity.
-
-# Transformation Process
+Variable Name|Measurement Type|Measurement Source|Meaurement Axis|Function Applied To Summary Data
+-----------------------|-----------------------|-----------------------|-----------------------|-----------------------
+tBodyAcc-mean()-Y|Time|Accelerometer|Y|mean()
+tGravityAcc-mean()-Y|Gravity|Accelerometer|Y|mean()
+tBodyAccJerk-mean()-Y|Velocity|Accelerometer|Y|mean()
+tBodyGyro-mean()-Y|Time|Gyroscope|Y|mean()
+tBodyGyroJerk-mean()-Y|Velocity|Gyroscope|Y|mean()
+tGravityAccMag-mean()|Gravity|Accelerometer|N/A|mean()
+tBodyGyroJerkMag-mean()|Velocity|Gyroscope|N/A|mean()
+fBodyAcc-mean()-Z|FFT|Accelerometer|Z|mean()
+fBodyAccJerk-mean()-Z|FFT|Accelerometer|Z|mean()
+fBodyGyro-mean()-Z|FFT|Gyroscope|Z|mean()
+fBodyBodyGyroMag-mean()|FFT|Gyroscope|N/A|mean()
+tBodyAcc-std()-Y|Time|Accelerometer|Y|std()
+tGravityAcc-std()-Y|Gravity|Accelerometer|Y|std()
+tBodyAccJerk-std()-Y|Velocity|Accelerometer|Y|std()
+tBodyGyro-std()-Y|Time|Gyroscope|Y|std()
+tBodyGyroJerk-std()-Y|Velocity|Gyroscope|Y|std()
+tGravityAccMag-std()|Gravity|Accelerometer|N/A|std()
+tBodyGyroJerkMag-std()|Velocity|Gyroscope|N/A|std()
+fBodyAcc-std()-Z|FFT|Accelerometer|Z|std()
+fBodyAccJerk-std()-Z|FFT|Accelerometer|Z|std()
+fBodyGyro-std()-Z|FFT|Gyroscope|Z|std()
+fBodyBodyGyroMag-std()|FFT|Gyroscope|N/A|std()
+tBodyAcc-mean()-Z|Time|Accelerometer|Z|mean()
+tGravityAcc-mean()-Z|Gravity|Accelerometer|Z|mean()
+tBodyAccJerk-mean()-Z|Velocity|Accelerometer|Z|mean()
+tBodyGyro-mean()-Z|Time|Gyroscope|Z|mean()
+tBodyGyroJerk-mean()-Z|Velocity|Gyroscope|Z|mean()
+tBodyAccJerkMag-mean()|Velocity|Accelerometer|N/A|mean()
+fBodyAcc-mean()-X|FFT|Accelerometer|X|mean()
+fBodyAccJerk-mean()-X|FFT|Accelerometer|X|mean()
+fBodyGyro-mean()-X|FFT|Gyroscope|X|mean()
+fBodyAccMag-mean()|FFT|Accelerometer|N/A|mean()
+fBodyBodyGyroJerkMag-mean()|FFT|Gyroscope|N/A|mean()
+tBodyAcc-std()-Z|Time|Accelerometer|Z|std()
+tGravityAcc-std()-Z|Gravity|Accelerometer|Z|std()
+tBodyAccJerk-std()-Z|Velocity|Accelerometer|Z|std()
+tBodyGyro-std()-Z|Time|Gyroscope|Z|std()
+tBodyGyroJerk-std()-Z|Velocity|Gyroscope|Z|std()
+tBodyAccJerkMag-std()|Velocity|Accelerometer|N/A|std()
+fBodyAcc-std()-X|FFT|Accelerometer|X|std()
+fBodyAccJerk-std()-X|FFT|Accelerometer|X|std()
+fBodyGyro-std()-X|FFT|Gyroscope|X|std()
+fBodyAccMag-std()|FFT|Accelerometer|N/A|std()
+fBodyBodyGyroJerkMag-std()|FFT|Gyroscope|N/A|std()
+tBodyAcc-mean()-X|Time|Accelerometer|X|mean()
+tGravityAcc-mean()-X|Gravity|Accelerometer|X|mean()
+tBodyAccJerk-mean()-X|Velocity|Accelerometer|X|mean()
+tBodyGyro-mean()-X|Time|Gyroscope|X|mean()
+tBodyGyroJerk-mean()-X|Velocity|Gyroscope|X|mean()
+tBodyAccMag-mean()|Time|Accelerometer|N/A|mean()
+tBodyGyroMag-mean()|Time|Gyroscope|N/A|mean()
+fBodyAcc-mean()-Y|FFT|Accelerometer|Y|mean()
+fBodyAccJerk-mean()-Y|FFT|Accelerometer|Y|mean()
+fBodyGyro-mean()-Y|FFT|Gyroscope|Y|mean()
+fBodyBodyAccJerkMag-mean()|FFT|Accelerometer|N/A|mean()
+tBodyAcc-std()-X|Time|Accelerometer|X|std()
+tGravityAcc-std()-X|Gravity|Accelerometer|X|std()
+tBodyAccJerk-std()-X|Velocity|Accelerometer|X|std()
+tBodyGyro-std()-X|Time|Gyroscope|X|std()
+tBodyGyroJerk-std()-X|Velocity|Gyroscope|X|std()
+tBodyAccMag-std()|Time|Accelerometer|N/A|std()
+tBodyGyroMag-std()|Time|Gyroscope|N/A|std()
+fBodyAcc-std()-Y|FFT|Accelerometer|Y|std()
+fBodyAccJerk-std()-Y|FFT|Accelerometer|Y|std()
+fBodyGyro-std()-Y|FFT|Gyroscope|Y|std()
+fBodyBodyAccJerkMag-std()|FFT|Accelerometer|N/A|std()
 
